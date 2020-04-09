@@ -1,0 +1,32 @@
+DELIMITER |
+CREATE TRIGGER trg_cli_deb
+AFTER INSERT ON venda_parcela
+FOR EACH ROW
+BEGIN
+  INSERT INTO cliente_debito
+  VALUES (NEW.idvenda, NEW.idparcela, NEW.dtvencimento, NEW.valor, NEW.idcliente, NEW.prazo, NEW.estado, NEW.obs, NEW.juros);
+END |
+DELIMITER;
+
+
+DELIMITER |
+CREATE TRIGGER trg_saldo_caixa
+AFTER INSERT ON caixa_entrada
+FOR EACH ROW
+BEGIN
+  UPDATE caixa
+  SET valorfinal = valorfinal + NEW.valor, saldo = saldo + NEW.valor
+  WHERE idcaixa = NEW.idcaixa;
+END |
+DELIMITER;
+
+DELIMITER |
+CREATE TRIGGER trg_saldo_caixa2
+AFTER INSERT ON caixa_saida
+FOR EACH ROW
+BEGIN
+  UPDATE caixa
+  SET valorfinal = valorfinal - NEW.valor, saldo = saldo - NEW.valor
+  WHERE idcaixa = NEW.idcaixa;
+END |
+DELIMITER;
