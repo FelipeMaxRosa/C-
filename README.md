@@ -1,0 +1,1 @@
+Esta é um aplicação desktop para uma loja de roupas para que o proprietário pudesse controlar estoque, crediário de seus clientes e contas a pagar. A linguagem de programação utilizada foi o C# e banco de dados local MySQL.
