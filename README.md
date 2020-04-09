@@ -1,1 +1,3 @@
+This is a desktop application for a clothing store so that the owner could control inventory, his customers' credit and accounts payable. The programming language used was C # and MySQL local database.
+
 Esta é um aplicação desktop para uma loja de roupas para que o proprietário pudesse controlar estoque, crediário de seus clientes e contas a pagar. A linguagem de programação utilizada foi o C# e banco de dados local MySQL.
